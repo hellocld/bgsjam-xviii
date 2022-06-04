@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://EnemyBullet.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Creatures/AAA_Baseline/EnemyCreature.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/AAA_Util/orb.svg" type="Texture" id=3]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.1
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+params_billboard_mode = 1
+albedo_color = Color( 0.988235, 0.0705882, 0.0705882, 1 )
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.1, 0.1 )
+
+[node name="TestPlayerBullet" instance=ExtResource( 2 )]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource( 1 )
+Move_Speed = 10.0
+Apply_Gravity = false
+
+[node name="Hitbox" parent="." index="1"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Hitbox" index="0"]
+shape = SubResource( 1 )
+
+[node name="Health" parent="." index="2"]
+Max_Health = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshPivot" index="0"]
+mesh = SubResource( 3 )
+material/0 = null

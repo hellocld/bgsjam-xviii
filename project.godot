@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "BaseCreature",
 "language": "GDScript",
 "path": "res://Scenes/Creatures/AAA_Baseline/BaseCreature.gd"
+}, {
+"base": "Position3D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Scenes/Creatures/Weapons/AAA_Baseline/Weapon.gd"
 } ]
 _global_script_class_icons={
-"BaseCreature": ""
+"BaseCreature": "",
+"Weapon": ""
 }
 
 [application]

@@ -1,10 +1,19 @@
 extends BaseCreature
 
 export(float) var Jump_Force := 10
+export(NodePath) var Weapon_Path
+
+var weapon : Weapon
+
+func _ready() -> void:
+	if Weapon_Path:
+		weapon = get_node(Weapon_Path)
 
 
 func _physics_process(_delta) -> void:
 	_handle_move_input()
+	if Input.is_action_pressed("gm_shoot") && weapon:
+		weapon.fire()
 
 
 func _handle_move_input() -> void:
@@ -18,7 +27,12 @@ func _handle_move_input() -> void:
 		grounded = false
 
 
-func _shoot() -> void:
-	if !$GunCooldown.is_stopped():
-		pass
-	
+
+
+func _on_Health_killed() -> void:
+	print("DEAD")
+	queue_free()
+
+
+func _on_Health_damaged() -> void:
+	print("OUCH")

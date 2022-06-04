@@ -1,6 +1,5 @@
-extends KinematicBody
+extends BaseCreature
 
-export(float) var Move_Speed := 1.0
 
 
 func _physics_process(delta) -> void:

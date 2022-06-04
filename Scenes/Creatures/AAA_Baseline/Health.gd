@@ -20,9 +20,9 @@ func take_damage(damage) -> void:
 
 func _on_Hitbox_area_entered(area):
 	if "Impact_Damage" in area:
-		take_damage(area.get_damage)
+		take_damage(area.Impact_Damage)
 
 
 func _on_Hitbox_body_entered(body):
 	if "Impact_Damage" in body:
-		take_damage(body.get_damage)
+		take_damage(body.Impact_Damage)
