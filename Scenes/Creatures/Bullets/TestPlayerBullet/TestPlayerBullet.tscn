@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://EnemyBullet.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Creatures/Bullets/AAA_Baseline/BaseBullet.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Creatures/AAA_Baseline/EnemyCreature.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/AAA_Util/orb.svg" type="Texture" id=3]
 
@@ -19,10 +19,10 @@ material = SubResource( 2 )
 size = Vector2( 0.1, 0.1 )
 
 [node name="TestPlayerBullet" instance=ExtResource( 2 )]
-collision_layer = 16
-collision_mask = 3
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 1 )
-Move_Speed = 10.0
+Move_Speed = 6.0
 Apply_Gravity = false
 
 [node name="Hitbox" parent="." index="1"]

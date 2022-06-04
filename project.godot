@@ -19,14 +19,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Hallways/AAA_Baseline/BaseHallway.gd"
 }, {
+"base": "Spatial",
+"class": "HallwayManager",
+"language": "GDScript",
+"path": "res://Scenes/AAA_Primary/HallwayManager/HallwayManager.gd"
+}, {
 "base": "Position3D",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://Scenes/Creatures/Weapons/AAA_Baseline/Weapon.gd"
+"path": "res://Scenes/Weapons/AAA_Baseline/Weapon.gd"
 } ]
 _global_script_class_icons={
 "BaseCreature": "",
 "Hallway": "",
+"HallwayManager": "",
 "Weapon": ""
 }
 

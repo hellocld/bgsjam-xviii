@@ -1,3 +1,4 @@
+class_name HallwayManager
 extends Spatial
 
 export(float) var Hall_Transition_Speed := 2.0
@@ -12,6 +13,7 @@ var _transitioning := false
 
 
 func _ready() -> void:
+	GameManager.set_hallway_manager(self)
 	EventBus.connect("hall_transtion_start", self, "_on_hall_transition_start")
 	# Select/instance first and second hall tiles
 	var first = _instance_random_hallway()

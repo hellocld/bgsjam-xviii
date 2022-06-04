@@ -2,6 +2,7 @@ class_name Weapon
 extends Position3D
 
 export(PackedScene) var Bullet : PackedScene
+export(float) var Cooldown := 1.0
 
 var cooldown : Timer
 
@@ -13,7 +14,7 @@ func _ready() -> void:
 func fire() -> void:
 	if !cooldown.is_stopped():
 		return
-	var b = Bullet.instance() as Spatial
-	get_tree().get_root().add_child(b)
+	var b = Bullet.instance() as BaseCreature
+	GameManager.get_hallway_manager().add_bullet(b)
 	b.global_transform = global_transform
-	cooldown.start()
+	cooldown.start(Cooldown)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Weapons/AAA_Baseline/Weapon.tscn" type="PackedScene" id=1]
+
+[node name="Weapon" instance=ExtResource( 1 )]
+Bullet = null
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 1.0
