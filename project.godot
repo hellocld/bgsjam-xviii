@@ -11,3 +11,34 @@ config_version=4
 [application]
 
 config/description="Created in 48-ish hours for BGSjam XVIII"
+
+[autoload]
+
+GameManager="*res://Autoloads/GameManager/GameManager.gd"
+
+[input]
+
+gm_move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+gm_move_right={
+"deadzone": 0.51,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+gm_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+gm_shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+
+[rendering]
+
+environment/default_environment="res://TestEnvironment.tres"
