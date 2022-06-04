@@ -11,12 +11,14 @@ func _ready() -> void:
 
 
 func _physics_process(_delta) -> void:
-	_handle_move_input()
-	if Input.is_action_pressed("gm_shoot") && weapon:
-		weapon.fire()
+	if !GameManager.in_hall_transition:
+		_handle_player_input()
+	else:
+		velocity.x = 0
 
 
-func _handle_move_input() -> void:
+
+func _handle_player_input() -> void:
 	velocity.x = 0
 	if Input.is_action_pressed("gm_move_left"):
 		velocity.x = -Move_Speed
@@ -25,7 +27,8 @@ func _handle_move_input() -> void:
 	if Input.is_action_just_pressed("gm_jump") && grounded:
 		velocity.y += Jump_Force
 		grounded = false
-
+	if Input.is_action_pressed("gm_shoot") && weapon:
+		weapon.fire()
 
 
 

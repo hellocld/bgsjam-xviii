@@ -12,7 +12,7 @@ var _transitioning := false
 
 
 func _ready() -> void:
-	EventBus.connect("hall_completed", self, "_on_hall_completed")
+	EventBus.connect("hall_transtion_start", self, "_on_hall_transition_start")
 	# Select/instance first and second hall tiles
 	var first = _instance_random_hallway()
 	set_active_hallway(first)
@@ -64,7 +64,7 @@ func set_completed_hallway(hallway:Hallway) -> void:
 	_completed_hallway = hallway
 
 
-func _on_hall_completed() -> void:
+func _on_hall_transition_start() -> void:
 	_completed_hallway = get_active_hallway()
 	set_active_hallway(_next_hallway)
 	set_next_hallway(_instance_random_hallway())
@@ -75,5 +75,6 @@ func _process_hall_transition(delta) -> void:
 	for child in $Hallways.get_children():
 		child.translate(Vector3.BACK * delta * Hall_Transition_Speed)
 	if get_active_hallway().global_transform.origin.z >= 0:
+		EventBus.emit_signal("hall_transiton_end")
 		_transitioning = false
 		get_completed_hallway().queue_free()

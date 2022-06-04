@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Hallways/TestHallway/Door.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Hallways/TestHallway/DoorMesh.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "OpenDoor"
+length = 3.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Door/DoorMesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 2, -7, 0, 0, 0, 1, 1, 1, 1, 3, 1, 0, -2, -7, 0, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "method"
+tracks/1/path = NodePath("Door")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_door_is_opened"
+} ]
+}
+
+[node name="Door" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="DoorMesh" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7 )
+use_collision = true
+collision_mask = 25
+width = 8.0
+height = 4.0
+depth = 0.2
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/OpenDoor = SubResource( 1 )
