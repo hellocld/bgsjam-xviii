@@ -11,7 +11,7 @@ radius = 0.1
 flags_transparent = true
 flags_unshaded = true
 params_billboard_mode = 1
-albedo_color = Color( 0.988235, 0.0705882, 0.0705882, 1 )
+albedo_color = Color( 0.678431, 0.988235, 0.0705882, 1 )
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=3]
@@ -38,3 +38,6 @@ Max_Health = 1
 [node name="MeshInstance" type="MeshInstance" parent="MeshPivot" index="0"]
 mesh = SubResource( 3 )
 material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="MeshPivot/MeshInstance" index="0"]
+light_color = Color( 0.627451, 0.921569, 0.0588235, 1 )

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/AAA_Primary/HallwayManager/HallwayManager.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Creatures/Player/PlayerCreature.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Hallways/TestHallway/TestHallway.tscn" type="PackedScene" id=3]
+
+[node name="HallwayManager" type="Spatial"]
+script = ExtResource( 1 )
+Hallway_Tiles = [ ExtResource( 3 ) ]
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="Bullets" type="Spatial" parent="."]
+
+[node name="Hallways" type="Spatial" parent="."]
+__meta__ = {
+"_editor_description_": "Parent node for Hallway scenes."
+}
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 2.90885 )
+fov = 80.0
+
+[node name="PlayerCreature" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
