@@ -7,6 +7,7 @@ signal creature_killed()
 export(float) var Move_Speed
 export(bool) var Apply_Gravity := true
 export(PackedScene) var Spawn_On_Killed : PackedScene
+export(bool) var Free_On_Killed := true
 
 var grounded := false
 var velocity : Vector3
@@ -41,4 +42,5 @@ func _on_Health_killed():
 		var s = Spawn_On_Killed.instance()
 		get_parent().add_child(s)
 		s.global_transform = global_transform
-
+	if Free_On_Killed:
+		call_deferred("queue_free")

@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Hallways/TestHallway/Autostarter.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Creatures/Enemies/TestEnemy/TestEnemy.tscn" type="PackedScene" id=6]
 
-[node name="TestHallway" instance=ExtResource( 2 )]
+[node name="TestHallway2" instance=ExtResource( 2 )]
 
 [node name="NextHallConnector" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
@@ -46,9 +46,12 @@ Hallway_Path = NodePath("..")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 
 [node name="TestEnemy" parent="Creatures" index="0" instance=ExtResource( 6 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 1, -5 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.11594, 1, -2.93512 )
 
-[node name="HallCompleteSwitch" parent="Creatures" index="1" instance=ExtResource( 3 )]
+[node name="TestEnemy2" parent="Creatures" index="1" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.36999, 1, -1.19999 )
+
+[node name="HallCompleteSwitch" parent="Creatures" index="2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5.9 )
 Hallway_Path = NodePath("../..")
 

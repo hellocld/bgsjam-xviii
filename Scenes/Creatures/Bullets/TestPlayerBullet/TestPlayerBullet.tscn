@@ -18,7 +18,7 @@ albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=3]
 material = SubResource( 2 )
-size = Vector2( 0.1, 0.1 )
+size = Vector2( 0.2, 0.2 )
 
 [node name="TestPlayerBullet" type="KinematicBody"]
 collision_layer = 0

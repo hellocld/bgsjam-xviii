@@ -12,6 +12,7 @@ var score := 0
 var game_over = false
 
 func _ready() -> void:
+	randomize()
 	EventBus.connect("hall_completed", self, "_on_hall_completed")
 	EventBus.connect("hall_start", self, "_on_hall_start")
 	EventBus.connect("game_start", self, "_on_game_start")
@@ -29,6 +30,9 @@ func _process(_delta) -> void:
 	if game_over:
 		if Input.is_action_just_pressed("ui_accept"):
 			_initialize_game()
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+			
 
 
 func _initialize_game() -> void:

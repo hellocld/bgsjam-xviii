@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/TurretShot.sfxr-b4fbcfb3d3a8e9fce1bb18a06cad180c.sample"
+
+[deps]
+
+source_file="res://Sounds/Enemies/TurretShot.sfxr"
+dest_files=[ "res://.import/TurretShot.sfxr-b4fbcfb3d3a8e9fce1bb18a06cad180c.sample" ]
+
+[params]
+
+loop=false
