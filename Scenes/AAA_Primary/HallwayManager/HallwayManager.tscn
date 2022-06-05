@@ -8,10 +8,6 @@
 script = ExtResource( 1 )
 Hallway_Tiles = [ ExtResource( 3 ) ]
 
-[node name="Enemies" type="Spatial" parent="."]
-
-[node name="Bullets" type="Spatial" parent="."]
-
 [node name="Hallways" type="Spatial" parent="."]
 __meta__ = {
 "_editor_description_": "Parent node for Hallway scenes."

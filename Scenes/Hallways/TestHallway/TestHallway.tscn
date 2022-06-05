@@ -25,32 +25,33 @@ use_collision = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5 )
 width = 8.0
 height = 0.2
-depth = 8.0
+depth = 10.0
 
 [node name="Wall" type="CSGBox" parent="Bounds" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -4.5 )
 width = 0.2
 height = 4.0
-depth = 8.0
+depth = 10.0
 
 [node name="Wall2" type="CSGBox" parent="Bounds" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -4.5 )
 width = 0.2
 height = 4.0
-depth = 8.0
+depth = 10.0
 
-[node name="HallCompleteSwitch" parent="." index="2" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5.9 )
-Hallway_Path = NodePath("..")
+[node name="Door" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Door" parent="." index="3" instance=ExtResource( 4 )]
-
-[node name="Autostarter" type="Node" parent="." index="4"]
+[node name="Autostarter" type="Node" parent="." index="3"]
 script = ExtResource( 5 )
 Hallway_Path = NodePath("..")
 
-[node name="TestEnemy" parent="." index="5" instance=ExtResource( 6 )]
+[node name="TestEnemy" parent="Creatures" index="0" instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 1, -5 )
 
-[connection signal="switch_destroyed" from="HallCompleteSwitch" to="Door" method="_on_HallCompleteSwitch_switch_destroyed"]
+[node name="HallCompleteSwitch" parent="Creatures" index="1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5.9 )
+Hallway_Path = NodePath("../..")
+
 [connection signal="door_open" from="Door" to="." method="hall_ready_to_transition"]
+[connection signal="switch_destroyed" from="Creatures/HallCompleteSwitch" to="." method="_on_this_hall_completed"]
+[connection signal="switch_destroyed" from="Creatures/HallCompleteSwitch" to="Door" method="_on_HallCompleteSwitch_switch_destroyed"]

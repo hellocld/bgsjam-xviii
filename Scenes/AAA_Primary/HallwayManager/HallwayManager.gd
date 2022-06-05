@@ -34,11 +34,11 @@ func _instance_random_hallway() -> Hallway:
 
 
 func add_bullet(bullet:BaseCreature) -> void:
-	$Bullets.add_child(bullet)
+	get_active_hallway().add_creature(bullet)
 
 
 func add_enemy(enemy:BaseCreature) -> void:
-	$Enemies.add_child(enemy)
+	get_active_hallway().add_creature(enemy)
 
 
 func get_active_hallway() -> Hallway:

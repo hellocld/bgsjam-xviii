@@ -11,6 +11,8 @@ func _ready() -> void:
 	health = Max_Health
 
 func take_damage(damage) -> void:
+	if health <= 0:
+		return # no need to do the math or emit signals multiple times
 	health -= damage
 	if health <= 0:
 		emit_signal("killed")

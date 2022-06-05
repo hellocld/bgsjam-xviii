@@ -9,3 +9,5 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Global transform where HallwayManager will instance next Hallway."
 }
+
+[node name="Creatures" type="Spatial" parent="."]
