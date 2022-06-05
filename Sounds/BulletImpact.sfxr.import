@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/BulletImpact.sfxr-6a8d197ff13b8cb1ff721f84158198e8.sample"
+
+[deps]
+
+source_file="res://Sounds/BulletImpact.sfxr"
+dest_files=[ "res://.import/BulletImpact.sfxr-6a8d197ff13b8cb1ff721f84158198e8.sample" ]
+
+[params]
+
+loop=false

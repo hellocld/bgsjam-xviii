@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Creatures/Bullets/AAA_Baseline/BaseBullet.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Creatures/AAA_Baseline/Health.gd" type="Script" id=2]
 [ext_resource path="res://Textures/AAA_Util/orb.svg" type="Texture" id=3]
 [ext_resource path="res://Scenes/Creatures/AAA_Baseline/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Effects/BulletDeath/BulletDeath.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.1
@@ -25,6 +26,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 Move_Speed = 6.0
 Apply_Gravity = false
+Spawn_On_Killed = ExtResource( 5 )
 
 [node name="PhysCollision" type="CollisionShape" parent="."]
 

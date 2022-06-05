@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/SwitchExplode.sfxr-25d4e3f056c38fc2fd581305976b35ed.sample"
+
+[deps]
+
+source_file="res://Sounds/Enemies/SwitchExplode.sfxr"
+dest_files=[ "res://.import/SwitchExplode.sfxr-25d4e3f056c38fc2fd581305976b35ed.sample" ]
+
+[params]
+
+loop=false

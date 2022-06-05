@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Textures/AAA_Util/orb.svg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Creatures/Bullets/AAA_Baseline/BaseEnemyBullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Creatures/AAA_Baseline/Health.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Creatures/AAA_Baseline/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Effects/BulletDeath/BulletDeath.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -20,15 +19,8 @@ size = Vector2( 0.1, 0.1 )
 collision_layer = 0
 collision_mask = 0
 Move_Speed = 4.0
-
-[node name="Hitbox" parent="." index="1"]
-script = ExtResource( 4 )
-
-[node name="Health" parent="." index="2"]
-script = ExtResource( 3 )
+Spawn_On_Killed = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="MeshPivot" index="0"]
 mesh = SubResource( 2 )
 material/0 = null
-
-[connection signal="killed" from="Health" to="KillPoints" method="_on_Health_killed"]
