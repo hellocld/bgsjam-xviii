@@ -27,7 +27,7 @@
      units="px"
      inkscape:zoom="0.64765011"
      inkscape:cx="554.31165"
-     inkscape:cy="142.05201"
+     inkscape:cy="141.27999"
      inkscape:window-width="1920"
      inkscape:window-height="1035"
      inkscape:window-x="0"
@@ -264,5 +264,16 @@
          style="font-size:79.5705px;line-height:1.25;font-family:TSCu_Times;-inkscape-font-specification:'TSCu_Times, Normal';letter-spacing:-6.28609px;word-spacing:0px;fill:url(#linearGradient32889);stroke-width:1.98927"
          id="path32754" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="123.30895"
+       y="-25.165609"
+       id="text34597"><tspan
+         sodipodi:role="line"
+         id="tspan34595"
+         style="stroke-width:0.264583"
+         x="123.30895"
+         y="-25.165609">asdfasdf</tspan></text>
   </g>
 </svg>

@@ -38,12 +38,14 @@ _global_script_class_icons={
 
 [application]
 
+config/name="Passageway"
 config/description="Created in 48-ish hours for BGSjam XVIII"
 
 [autoload]
 
 GameManager="*res://Autoloads/GameManager/GameManager.gd"
 EventBus="*res://Autoloads/EventBus/EventBus.gd"
+GameUi="*res://Autoloads/GameUI/GameUI.tscn"
 
 [input]
 

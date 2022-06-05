@@ -1,10 +1,28 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Textures/Logo/Logo.svg" type="Texture" id=1]
+[ext_resource path="res://Fonts/URWGothic-Demi.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+Label/fonts/font = null
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -32,7 +50,9 @@ stretch_mode = 6
 anchor_top = 0.88
 anchor_right = 1.0
 anchor_bottom = 0.88
-margin_top = -13.84
-margin_bottom = 0.159973
+margin_top = -53.84
+margin_bottom = 11.16
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Press Start"
 align = 1
