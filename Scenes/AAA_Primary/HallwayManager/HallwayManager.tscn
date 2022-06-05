@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/AAA_Primary/HallwayManager/HallwayManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Creatures/Player/PlayerCreature.tscn" type="PackedScene" id=2]
@@ -7,13 +7,14 @@
 [ext_resource path="res://Scenes/Hallways/TurretHallway/TurretHallway.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Hallways/TestHallway/TestHallway2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Hallways/SpawnerHallway/SpawnerHall2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Hallways/TestHallway/EmptyHallway.tscn" type="PackedScene" id=8]
 
 [node name="HallwayManager" type="Spatial"]
 script = ExtResource( 1 )
 Spawn_Point = NodePath("Player1Spawn")
 PlayerScene = ExtResource( 2 )
 Hallway_Tiles = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
-First_Hallway_Tile = ExtResource( 6 )
+First_Hallway_Tile = ExtResource( 8 )
 
 [node name="Hallways" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
