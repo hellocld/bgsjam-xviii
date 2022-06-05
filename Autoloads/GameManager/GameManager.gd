@@ -85,6 +85,8 @@ func _on_game_start() -> void:
 	# Instace hallway manager
 	score = 0
 	lives = 3
+	EventBus.emit_signal("lives_changed")
+	EventBus.emit_signal("score_changed")
 	get_tree().change_scene("res://Scenes/AAA_Primary/HallwayManager/HallwayManager.tscn")
 	
 
