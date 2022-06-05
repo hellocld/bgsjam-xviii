@@ -2,7 +2,6 @@ class_name Hallway
 extends Spatial
 
 
-
 func add_creature(creature:BaseCreature) -> void:
 	$Creatures.add_child(creature)
 

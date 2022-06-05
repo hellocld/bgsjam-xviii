@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/PlayerShot.sfxr-6ecebb37e074ef78984fe2d8e2ff09ff.sample"
+
+[deps]
+
+source_file="res://Sounds/Player/PlayerShot.sfxr"
+dest_files=[ "res://.import/PlayerShot.sfxr-6ecebb37e074ef78984fe2d8e2ff09ff.sample" ]
+
+[params]
+
+loop=false

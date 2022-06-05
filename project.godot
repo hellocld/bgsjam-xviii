@@ -48,6 +48,10 @@ GameManager="*res://Autoloads/GameManager/GameManager.gd"
 EventBus="*res://Autoloads/EventBus/EventBus.gd"
 GameUi="*res://Autoloads/GameUI/GameUI.tscn"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gdfxr/plugin.cfg" )
+
 [input]
 
 gm_move_left={

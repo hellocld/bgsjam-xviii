@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/BasicEnemyShot.sfxr-10112bbe2bc95c6394fdf3975e3f1d2b.sample"
+
+[deps]
+
+source_file="res://Sounds/Enemies/BasicEnemyShot.sfxr"
+dest_files=[ "res://.import/BasicEnemyShot.sfxr-10112bbe2bc95c6394fdf3975e3f1d2b.sample" ]
+
+[params]
+
+loop=false

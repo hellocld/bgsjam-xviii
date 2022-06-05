@@ -18,13 +18,12 @@ var _transitioning := false
 func _ready() -> void:
 	GameManager.set_hallway_manager(self)
 	_spawn_point = get_node(Spawn_Point) as Spatial
+	EventBus.connect("hall_completed", self, "_on_hall_completed")
 	EventBus.connect("hall_transtion_start", self, "_on_hall_transition_start")
 	EventBus.connect("respawn_player", self, "_spawn_player")
 	# Select/instance first and second hall tiles
 	var first = _instance_random_hallway()
 	set_active_hallway(first)
-	var second = _instance_random_hallway()
-	set_next_hallway(second)
 	_spawn_player()
 
 
@@ -37,6 +36,10 @@ func _spawn_player() -> void:
 	var p = PlayerScene.instance()
 	add_child(p)
 	p.global_transform = _spawn_point.global_transform
+
+
+func _on_hall_completed() -> void:
+	set_next_hallway(_instance_random_hallway())
 
 
 func _instance_random_hallway() -> Hallway:
@@ -59,6 +62,7 @@ func get_active_hallway() -> Hallway:
 
 func set_active_hallway(hallway:Hallway) -> void:
 	_active_hallway = hallway
+	EventBus.emit_signal("hall_active", _active_hallway)
 
 
 func get_next_hallway() -> Hallway:
@@ -81,7 +85,6 @@ func set_completed_hallway(hallway:Hallway) -> void:
 func _on_hall_transition_start() -> void:
 	_completed_hallway = get_active_hallway()
 	set_active_hallway(_next_hallway)
-	set_next_hallway(_instance_random_hallway())
 	_transitioning = true
 
 

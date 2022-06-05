@@ -10,6 +10,8 @@ signal game_start()
 
 signal hall_start()
 
+signal hall_active(hall)
+
 signal hall_transtion_start()
 signal hall_transiton_end()
 

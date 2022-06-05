@@ -9,3 +9,5 @@ script = ExtResource( 1 )
 process_mode = 0
 wait_time = 0.1
 one_shot = true
+
+[node name="FirePlayer" type="AudioStreamPlayer3D" parent="."]
