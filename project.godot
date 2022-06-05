@@ -47,7 +47,6 @@ _global_script_class_icons={
 config/name="Passageway"
 config/description="Created in 48-ish hours for BGSjam XVIII"
 run/main_scene="res://Scenes/AAA_Primary/Main.tscn"
-boot_splash/image="res://Textures/Splash.png"
 boot_splash/bg_color=Color( 0.101961, 0.101961, 0.101961, 1 )
 
 [autoload]

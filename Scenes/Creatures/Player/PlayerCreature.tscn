@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Creatures/AAA_Baseline/BaseCreature.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Creatures/Player/PlayerCreature.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Creatures/Bullets/TestPlayerBullet/TestPlayerBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Effects/SimpleExplosion/SimpleExplosion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Player/PlayerShot.sfxr" type="AudioStream" id=6]
+[ext_resource path="res://Textures/AAA_Util/checker.svg" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.25
@@ -19,6 +20,18 @@ height = 0.5
 radius = 0.25
 mid_height = 0.5
 
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.87451, 1, 0, 1 )
+albedo_texture = ExtResource( 7 )
+emission_enabled = true
+emission = Color( 0.643137, 1, 0, 1 )
+emission_energy = 0.25
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 7 )
+uv1_scale = Vector3( 10, 10, 10 )
+uv1_triplanar = true
+
 [node name="PlayerCreature" instance=ExtResource( 1 )]
 collision_layer = 4
 script = ExtResource( 2 )
@@ -27,11 +40,11 @@ Spawn_On_Killed = ExtResource( 5 )
 Weapon_Path = NodePath("Weapon")
 
 [node name="PhysCollision" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -7.45058e-09, 0 )
 shape = SubResource( 1 )
 
 [node name="Hitbox" parent="." index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.45058e-09, 0 )
 collision_layer = 4
 collision_mask = 8
 
@@ -43,18 +56,18 @@ shape = SubResource( 2 )
 Max_Health = 1
 
 [node name="MeshPivot" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.45058e-09, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="MeshPivot" index="0"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 3 )
-material/0 = null
+material/0 = SubResource( 4 )
 
 [node name="Weapon" parent="." index="4" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.45058e-09, 0 )
 Bullet = ExtResource( 4 )
 SFX = ExtResource( 6 )
 Cooldown = 0.1
 
 [node name="PlayerCenter" type="Position3D" parent="." index="5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.45058e-09, 0 )

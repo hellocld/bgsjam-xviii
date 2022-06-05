@@ -6,6 +6,7 @@ export(NodePath) var Spawn_Point : NodePath
 export(PackedScene) var PlayerScene : PackedScene
 export(float) var Hall_Transition_Speed := 2.0
 export(Array,PackedScene) var Hallway_Tiles : Array
+export(PackedScene) var First_Hallway_Tile : PackedScene
 
 var _spawn_point : Spatial
 var _active_hallway : Hallway setget set_active_hallway,get_active_hallway
@@ -21,8 +22,8 @@ func _ready() -> void:
 	EventBus.connect("hall_completed", self, "_on_hall_completed")
 	EventBus.connect("hall_transtion_start", self, "_on_hall_transition_start")
 	EventBus.connect("respawn_player", self, "_spawn_player")
-	# Select/instance first and second hall tiles
-	var first = _instance_random_hallway()
+	var first = First_Hallway_Tile.instance()
+	$Hallways.add_child(first)
 	set_active_hallway(first)
 	_spawn_player()
 	EventBus.emit_signal("hall_transiton_end")

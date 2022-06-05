@@ -7,6 +7,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.4 )
 script = ExtResource( 1 )
 
 [node name="SpawnDelay" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [connection signal="timeout" from="SpawnDelay" to="." method="_on_SpawnDelay_timeout"]

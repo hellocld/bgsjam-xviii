@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Materials/Checker.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/Hallways/AAA_Baseline/BaseHallway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Creatures/Enemies/HallCompleteSwitch/HallCompleteSwitch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Hallways/TestHallway/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Hallways/TestHallway/Autostarter.gd" type="Script" id=5]
+
+[node name="EmptyHallway" instance=ExtResource( 2 )]
+
+[node name="NextHallConnector" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
+
+[node name="Bounds" type="CSGCombiner" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5 )
+material_override = ExtResource( 1 )
+use_collision = true
+
+[node name="Floor" type="CSGBox" parent="Bounds" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5 )
+width = 8.0
+height = 0.2
+depth = 10.0
+
+[node name="Wall" type="CSGBox" parent="Bounds" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -4.5 )
+width = 0.2
+height = 4.0
+depth = 10.0
+
+[node name="Wall2" type="CSGBox" parent="Bounds" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -4.5 )
+width = 0.2
+height = 4.0
+depth = 10.0
+
+[node name="Door" parent="." index="2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="Autostarter" type="Node" parent="." index="3"]
+script = ExtResource( 5 )
+Hallway_Path = NodePath("..")
+
+[node name="Creatures" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="HallCompleteSwitch" parent="Creatures" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5.9 )
+Hallway_Path = NodePath("../..")
+
+[connection signal="door_open" from="Door" to="." method="hall_ready_to_transition"]
+[connection signal="switch_destroyed" from="Creatures/HallCompleteSwitch" to="Door" method="_on_HallCompleteSwitch_switch_destroyed"]

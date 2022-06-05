@@ -52,12 +52,17 @@ func _on_enemy_killed(points) -> void:
 
 func _on_player_killed() -> void:
 	lives -= 1
+	set_player(null)
 	if lives <= 0:
-		set_player(null)
 		EventBus.emit_signal("game_over")
 	else:
 		EventBus.emit_signal("lives_changed")
-		EventBus.emit_signal("respawn_player")
+		var delay = get_tree().create_timer(1.0)
+		delay.connect("timeout", self, "_on_respawn_delay_timeout")
+
+
+func _on_respawn_delay_timeout() -> void:
+	EventBus.emit_signal("respawn_player")
 
 
 func set_player(player:BaseCreature) -> void:

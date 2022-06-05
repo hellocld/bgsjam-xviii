@@ -7,10 +7,14 @@ export(NodePath) var Weapon_Path
 var weapon : Weapon
 
 func _ready() -> void:
-	GameManager.set_player($PlayerCenter)
+	GameManager.set_player(self)
 	if Weapon_Path:
 		weapon = get_node(Weapon_Path)
 	call_deferred("_spawn_invulnerable")
+
+
+func get_player_center() -> Spatial:
+	return $PlayerCenter as Spatial
 
 
 func _spawn_invulnerable() -> void:

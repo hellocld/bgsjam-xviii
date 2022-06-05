@@ -42,7 +42,6 @@ material/0 = ExtResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.4 )
 Bullet = ExtResource( 3 )
 SFX = ExtResource( 4 )
-Cooldown = 1.8
 
 [node name="RayRight" type="RayCast" parent="." index="6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )

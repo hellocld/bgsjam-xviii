@@ -38,3 +38,6 @@ func _on_SpawnDelay_timeout():
 	if spawns > Max_Spawns:
 		return
 	_spawn_creature()
+
+func _on_spawned_creature_killed() -> void:
+	spawns -= 1
