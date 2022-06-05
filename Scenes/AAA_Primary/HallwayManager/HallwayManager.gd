@@ -1,10 +1,13 @@
 class_name HallwayManager
 extends Spatial
 
+
+export(NodePath) var Spawn_Point : NodePath
+export(PackedScene) var PlayerScene : PackedScene
 export(float) var Hall_Transition_Speed := 2.0
 export(Array,PackedScene) var Hallway_Tiles : Array
 
-
+var _spawn_point : Spatial
 var _active_hallway : Hallway setget set_active_hallway,get_active_hallway
 var _next_hallway : Hallway setget set_next_hallway,get_next_hallway
 var _completed_hallway : Hallway setget set_completed_hallway,get_completed_hallway
@@ -14,17 +17,26 @@ var _transitioning := false
 
 func _ready() -> void:
 	GameManager.set_hallway_manager(self)
+	_spawn_point = get_node(Spawn_Point) as Spatial
 	EventBus.connect("hall_transtion_start", self, "_on_hall_transition_start")
+	EventBus.connect("respawn_player", self, "_spawn_player")
 	# Select/instance first and second hall tiles
 	var first = _instance_random_hallway()
 	set_active_hallway(first)
 	var second = _instance_random_hallway()
 	set_next_hallway(second)
+	_spawn_player()
 
 
 func _physics_process(delta) -> void:
 	if _transitioning:
 		_process_hall_transition(delta)
+
+
+func _spawn_player() -> void:
+	var p = PlayerScene.instance()
+	add_child(p)
+	p.global_transform = _spawn_point.global_transform
 
 
 func _instance_random_hallway() -> Hallway:

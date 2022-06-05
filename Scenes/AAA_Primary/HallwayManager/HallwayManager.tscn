@@ -6,6 +6,8 @@
 
 [node name="HallwayManager" type="Spatial"]
 script = ExtResource( 1 )
+Spawn_Point = NodePath("Player1Spawn")
+PlayerScene = ExtResource( 2 )
 Hallway_Tiles = [ ExtResource( 3 ) ]
 
 [node name="Hallways" type="Spatial" parent="."]
@@ -17,5 +19,5 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 2.90885 )
 fov = 80.0
 
-[node name="PlayerCreature" parent="." instance=ExtResource( 2 )]
+[node name="Player1Spawn" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

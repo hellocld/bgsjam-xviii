@@ -1,24 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Creatures/Bullets/AAA_Baseline/BaseBullet.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Creatures/AAA_Baseline/EnemyCreature.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Creatures/AAA_Baseline/Health.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Creatures/AAA_Baseline/Hitbox.gd" type="Script" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.1
 
-[node name="BasePlayerBullet" instance=ExtResource( 2 )]
+[node name="BasePlayerBullet" type="KinematicBody"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )
 Move_Speed = 2.0
 Apply_Gravity = false
 
-[node name="Hitbox" parent="." index="1"]
+[node name="PhysCollision" type="CollisionShape" parent="."]
+
+[node name="Hitbox" type="Area" parent="."]
 collision_layer = 16
 collision_mask = 2
+script = ExtResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Hitbox" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="Hitbox"]
 shape = SubResource( 1 )
 
-[node name="Health" parent="." index="2"]
+[node name="Health" type="Node" parent="."]
+script = ExtResource( 2 )
 Max_Health = 1
+
+[node name="MeshPivot" type="Spatial" parent="."]
+
+[connection signal="area_entered" from="Hitbox" to="Health" method="_on_Hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="Health" method="_on_Hitbox_body_entered"]
+[connection signal="damaged" from="Health" to="." method="_on_Health_damaged"]
+[connection signal="killed" from="Health" to="." method="_on_Health_killed"]

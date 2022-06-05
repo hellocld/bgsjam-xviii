@@ -40,6 +40,7 @@ _global_script_class_icons={
 
 config/name="Passageway"
 config/description="Created in 48-ish hours for BGSjam XVIII"
+run/main_scene="res://Scenes/AAA_Primary/Main.tscn"
 
 [autoload]
 

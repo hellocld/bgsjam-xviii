@@ -1,5 +1,6 @@
 extends BaseCreature
 
+export(float) var Spawn_I_Time := 3.0
 export(float) var Jump_Force := 10
 export(NodePath) var Weapon_Path
 
@@ -9,7 +10,13 @@ func _ready() -> void:
 	GameManager.set_player(self)
 	if Weapon_Path:
 		weapon = get_node(Weapon_Path)
+	call_deferred("_spawn_invulnerable")
 
+
+func _spawn_invulnerable() -> void:
+	var invuln_timer = get_tree().create_timer(3.0)
+	invuln_timer.connect("timeout", self, "_on_invuln_timeout")
+	$Health.set_invulnerable(true)
 
 func _physics_process(_delta) -> void:
 	if !GameManager.in_hall_transition:
@@ -32,11 +39,15 @@ func _handle_player_input() -> void:
 		weapon.fire()
 
 
-
 func _on_Health_killed() -> void:
 	print("DEAD")
+	EventBus.emit_signal("player_killed")
 	queue_free()
 
 
 func _on_Health_damaged() -> void:
 	print("OUCH")
+
+
+func _on_invuln_timeout() -> void:
+	$Health.set_invulnerable(false)

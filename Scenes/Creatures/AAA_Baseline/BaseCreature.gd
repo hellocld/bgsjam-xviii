@@ -3,6 +3,7 @@ extends KinematicBody
 
 export(float) var Move_Speed
 export(bool) var Apply_Gravity := true
+export(PackedScene) var Spawn_On_Killed : PackedScene
 
 var grounded := false
 var velocity : Vector3
@@ -32,4 +33,9 @@ func _on_Health_damaged():
 
 
 func _on_Health_killed():
-	pass # Replace with function body.
+	print("%s killed" % self.name)
+	if Spawn_On_Killed:
+		var s = Spawn_On_Killed.instance()
+		get_parent().add_child(s)
+		s.global_transform = global_transform
+

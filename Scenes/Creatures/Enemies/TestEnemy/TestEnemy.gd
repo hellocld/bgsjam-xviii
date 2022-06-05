@@ -2,4 +2,5 @@ extends BaseCreature
 
 
 func _on_Health_killed() -> void:
-	queue_free()
+	._on_Health_killed()
+	call_deferred("queue_free")
