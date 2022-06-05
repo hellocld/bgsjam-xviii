@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Autostarter",
+"language": "GDScript",
+"path": "res://Scenes/Hallways/TestHallway/Autostarter.gd"
+}, {
 "base": "KinematicBody",
 "class": "BaseCreature",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Weapons/AAA_Baseline/Weapon.gd"
 } ]
 _global_script_class_icons={
+"Autostarter": "",
 "BaseCreature": "",
 "Hallway": "",
 "HallwayManager": "",

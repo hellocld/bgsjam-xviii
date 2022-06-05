@@ -1,6 +1,6 @@
 extends Node
 
-signal hall_completed()
+signal hall_completed(hall)
 
 signal player_killed()
 signal respawn_player()

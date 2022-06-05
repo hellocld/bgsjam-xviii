@@ -2,6 +2,10 @@ class_name Hallway
 extends Spatial
 
 
+func _ready() -> void:
+	EventBus.connect("hall_completed", self, "_on_hall_completed")
+
+
 func add_creature(creature:BaseCreature) -> void:
 	$Creatures.add_child(creature)
 
@@ -21,5 +25,6 @@ func hall_ready_to_transition() -> void:
 	EventBus.emit_signal("hall_transtion_start")
 
 
-func _on_this_hall_completed() -> void:
-	cleanup_creatures()
+func _on_hall_completed(hall) -> void:
+	if hall == self:
+		cleanup_creatures()

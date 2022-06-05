@@ -25,6 +25,7 @@ func _ready() -> void:
 	var first = _instance_random_hallway()
 	set_active_hallway(first)
 	_spawn_player()
+	EventBus.emit_signal("hall_transiton_end")
 
 
 func _physics_process(delta) -> void:
@@ -38,7 +39,7 @@ func _spawn_player() -> void:
 	p.global_transform = _spawn_point.global_transform
 
 
-func _on_hall_completed() -> void:
+func _on_hall_completed(_hall) -> void:
 	set_next_hallway(_instance_random_hallway())
 
 
@@ -91,7 +92,7 @@ func _on_hall_transition_start() -> void:
 func _process_hall_transition(delta) -> void:
 	for child in $Hallways.get_children():
 		child.translate(Vector3.BACK * delta * Hall_Transition_Speed)
-	if get_active_hallway().global_transform.origin.z >= 0:
+	if get_active_hallway().global_transform.origin.z >= $Hallways.global_transform.origin.z:
 		EventBus.emit_signal("hall_transiton_end")
 		_transitioning = false
 		get_completed_hallway().queue_free()

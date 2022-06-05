@@ -80,7 +80,7 @@ func _on_game_start() -> void:
 	
 
 
-func _on_hall_completed() -> void:
+func _on_hall_completed(_hall) -> void:
 	in_hall_transition = true
 
 

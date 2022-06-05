@@ -1,6 +1,9 @@
 class_name BaseCreature
 extends KinematicBody
 
+signal creature_damaged()
+signal creature_killed()
+
 export(float) var Move_Speed
 export(bool) var Apply_Gravity := true
 export(PackedScene) var Spawn_On_Killed : PackedScene
@@ -29,11 +32,11 @@ func move_creature() -> void:
 
 
 func _on_Health_damaged():
-	pass # Replace with function body.
+	emit_signal("creature_damaged")
 
 
 func _on_Health_killed():
-	print("%s killed" % self.name)
+	emit_signal("creature_killed")
 	if Spawn_On_Killed:
 		var s = Spawn_On_Killed.instance()
 		get_parent().add_child(s)

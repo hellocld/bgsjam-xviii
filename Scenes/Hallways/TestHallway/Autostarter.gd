@@ -1,3 +1,4 @@
+class_name Autostarter
 extends Node
 
 export(NodePath) var Hallway_Path
