@@ -7,7 +7,7 @@ export(NodePath) var Weapon_Path
 var weapon : Weapon
 
 func _ready() -> void:
-	GameManager.set_player(self)
+	GameManager.set_player($PlayerCenter)
 	if Weapon_Path:
 		weapon = get_node(Weapon_Path)
 	call_deferred("_spawn_invulnerable")
@@ -40,13 +40,8 @@ func _handle_player_input() -> void:
 
 
 func _on_Health_killed() -> void:
-	print("DEAD")
 	EventBus.emit_signal("player_killed")
-	queue_free()
-
-
-func _on_Health_damaged() -> void:
-	print("OUCH")
+	._on_Health_killed()
 
 
 func _on_invuln_timeout() -> void:

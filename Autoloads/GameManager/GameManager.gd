@@ -30,7 +30,7 @@ func _process(_delta) -> void:
 	if game_over:
 		if Input.is_action_just_pressed("ui_accept"):
 			_initialize_game()
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("gen_quit"):
 		get_tree().quit()
 			
 
